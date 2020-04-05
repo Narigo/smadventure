@@ -1,12 +1,12 @@
 import React from "react";
-import Screen from "./component/screen/Screen";
+import InteractionScreen from "./component/screen/InteractionScreen";
 
 export default function App() {
   return (
-      <Screen
-        picture="hello picture"
-        description="hello description"
-        actions="hello actions"
-      />
+    <InteractionScreen
+      picture={0}
+      description="hello description"
+      actions="hello actions"
+    />
   );
 }
