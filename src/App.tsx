@@ -1,6 +1,6 @@
 import React from "react";
 import InteractionScreen from "./component/screen/InteractionScreen";
-import logo from "./asset/logo.png";
+import logo from "./asset/logo.svg";
 
 export default function App() {
   return (
