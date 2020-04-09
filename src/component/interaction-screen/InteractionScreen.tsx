@@ -6,7 +6,7 @@ import {
   Image,
   ImageSourcePropType,
 } from "react-native";
-import Screen from "./Screen";
+import Screen from "../screen/Screen";
 
 interface InteractionScreenProps {
   actions: string;
