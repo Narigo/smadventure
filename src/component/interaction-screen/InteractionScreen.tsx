@@ -6,10 +6,11 @@ import {
   Image,
   ImageSourcePropType,
 } from "react-native";
+import { ActionButtonProps } from "../action-button/ActionButton";
 import Screen from "../screen/Screen";
 
 interface InteractionScreenProps {
-  actions: string;
+  actions: React.ReactNode;
   description: string;
   picture: ImageSourcePropType;
 }
