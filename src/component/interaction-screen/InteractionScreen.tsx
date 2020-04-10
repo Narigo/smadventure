@@ -6,11 +6,10 @@ import {
   Image,
   ImageSourcePropType,
 } from "react-native";
-import { ActionButtonProps } from "../action-button/ActionButton";
 import Screen from "../screen/Screen";
 
 interface InteractionScreenProps {
-  actions: React.ReactNode;
+  children: React.ReactNode;
   description: string;
   picture: ImageSourcePropType;
 }
@@ -18,7 +17,7 @@ interface InteractionScreenProps {
 const InteractionScreen: React.FC<InteractionScreenProps> = ({
   picture,
   description,
-  actions,
+  children,
 }) => {
   return (
     <Screen>
@@ -27,8 +26,8 @@ const InteractionScreen: React.FC<InteractionScreenProps> = ({
         <Text>{picture}</Text>
         <Text style={styles.description}>{description}</Text>
       </View>
-      <View style={styles.actions}>
-        <Text>{actions}</Text>
+      <View style={styles.children}>
+        <Text>{children}</Text>
       </View>
     </Screen>
   );
@@ -37,7 +36,7 @@ const InteractionScreen: React.FC<InteractionScreenProps> = ({
 export default InteractionScreen;
 
 const styles = StyleSheet.create({
-  actions: {
+  children: {
     flex: 1,
     backgroundColor: "#ccc",
     alignItems: "center",

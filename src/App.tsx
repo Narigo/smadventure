@@ -4,19 +4,26 @@ import logo from "./asset/logo.svg";
 import ActionButton from "./component/action-button/ActionButton";
 
 export default function App() {
+  const prev = (
+    <ActionButton
+      label="prev"
+      action={() => {
+        console.log("clicked prev!");
+      }}
+    />
+  );
   const next = (
     <ActionButton
-      label="click"
+      label="next"
       action={() => {
-        console.log("clicked!");
+        console.log("clicked next!");
       }}
     />
   );
   return (
-    <InteractionScreen
-      picture={logo}
-      description="hello description"
-      actions={[next]}
-    />
+    <InteractionScreen picture={logo} description="hello description">
+      {prev}
+      {next}
+    </InteractionScreen>
   );
 }
