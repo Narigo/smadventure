@@ -1,23 +1,12 @@
 import React from "react";
-import InteractionScreen from "./component/interaction-screen/InteractionScreen";
-import logo from "./asset/logo.svg";
-import ActionButton from "./component/action-button/ActionButton";
+import { createGame, GameProvider } from "./service/use-game-context";
+import Game from "./component/game/Game";
 
 export default function App() {
+  const game = createGame();
   return (
-    <InteractionScreen picture={logo} description="hello description">
-      <ActionButton
-        label="prev"
-        action={() => {
-          console.log("clicked prev!");
-        }}
-      />
-      <ActionButton
-        label="next"
-        action={() => {
-          console.log("clicked next!");
-        }}
-      />
-    </InteractionScreen>
+    <GameProvider value={game}>
+      <Game />
+    </GameProvider>
   );
 }
