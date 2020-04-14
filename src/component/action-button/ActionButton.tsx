@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "react-native";
 import Flavor from "../../type/flavor";
-import { useGameContext } from "../../service/use-game-context";
+import { useGameContext } from "../game/Game";
 
 export type Action = Flavor<(GameContext) => void, "Action">;
 

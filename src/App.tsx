@@ -1,12 +1,7 @@
 import React from "react";
-import { createGame, GameProvider } from "./service/use-game-context";
 import Game from "./component/game/Game";
+import GameScreen from "./component/sample-game/SampleGame";
 
 export default function App() {
-  const game = createGame();
-  return (
-    <GameProvider value={game}>
-      <Game />
-    </GameProvider>
-  );
+  return <Game initialScreen={<GameScreen />} />;
 }

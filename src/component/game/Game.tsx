@@ -1,52 +1,38 @@
-import React from "react";
+import React, { createContext, useContext, useState, useMemo } from "react";
 
-import ActionButton from "../action-button/ActionButton";
-import InteractionScreen from "../interaction-screen/InteractionScreen";
-import logo from "../../asset/logo.svg";
+interface GameContext {
+  navigate: (to: { screen: React.ReactNode }) => void;
+  restart: () => void;
+}
 
-const Game = () => {
-  const left = (
-    <InteractionScreen picture={logo} description="left screen">
-      <ActionButton
-        label="center"
-        action={({ navigate }) => {
-          console.log("clicked center!");
-          navigate({ screen: center });
-        }}
-      />
-    </InteractionScreen>
-  );
-  const center = (
-    <InteractionScreen picture={logo} description="center screen">
-      <ActionButton
-        label="left"
-        action={({ navigate }) => {
-          console.log("clicked left!");
-          navigate({ screen: left });
-        }}
-      />
-      <ActionButton
-        label="right"
-        action={({ navigate }) => {
-          console.log("clicked right!");
-          navigate({ screen: right });
-        }}
-      />
-    </InteractionScreen>
-  );
-  const right = (
-    <InteractionScreen picture={logo} description="right screen">
-      <ActionButton
-        label="center"
-        action={({ navigate }) => {
-          console.log("clicked center!");
-          navigate({ screen: center });
-        }}
-      />
-    </InteractionScreen>
-  );
+const NotInitializedError = () => {
+  throw new Error("Game not initialized - did you use 'createGame()'?");
+};
 
-  return center;
+const initialState: GameContext = {
+  navigate: NotInitializedError,
+  restart: NotInitializedError,
+};
+
+const GameContext = createContext(initialState);
+
+const Game = ({ initialScreen }) => {
+  const [currentScreen, setCurrentScreen] = useState(initialScreen);
+  const context = useMemo(
+    () => ({
+      navigate: ({ screen }) => setCurrentScreen(screen),
+      restart: () => initialScreen,
+    }),
+    [initialScreen, setCurrentScreen]
+  );
+  return (
+    <GameContext.Provider value={context}>{currentScreen}</GameContext.Provider>
+  );
 };
 
 export default Game;
+
+export function useGameContext() {
+  const context = useContext(GameContext);
+  return context;
+}
