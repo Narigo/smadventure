@@ -6,7 +6,7 @@ import {
   Image,
   ImageSourcePropType,
 } from "react-native";
-import Screen from "../screen/Screen";
+import Screen from "../screen/screen";
 
 interface InteractionScreenProps {
   children: React.ReactNode;
@@ -26,9 +26,7 @@ const InteractionScreen: React.FC<InteractionScreenProps> = ({
         <Text>{picture}</Text>
         <Text style={styles.description}>{description}</Text>
       </View>
-      <View style={styles.children}>
-        <Text>{children}</Text>
-      </View>
+      <View style={styles.children}>{children}</View>
     </Screen>
   );
 };
@@ -39,8 +37,9 @@ const styles = StyleSheet.create({
   children: {
     flex: 1,
     backgroundColor: "#ccc",
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: "stretch",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
   },
   description: {
     alignItems: "flex-end",

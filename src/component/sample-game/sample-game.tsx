@@ -1,7 +1,7 @@
 import React from "react";
 
-import ActionButton from "../action-button/ActionButton";
-import InteractionScreen from "../interaction-screen/InteractionScreen";
+import ActionButton from "../action-button/action-button";
+import InteractionScreen from "../interaction-screen/interaction-screen";
 import logo from "../../asset/logo.svg";
 
 const SampleGame = () => {

@@ -1,7 +1,8 @@
 import React from "react";
-import { Button } from "react-native";
+import { Button, StyleSheet } from "react-native";
+
 import Flavor from "../../type/flavor";
-import { useGameContext } from "../game/Game";
+import { useGameContext } from "../game/game";
 
 export type Action = Flavor<(GameContext) => void, "Action">;
 
@@ -12,7 +13,17 @@ export interface ActionButtonProps {
 
 const ActionButton: React.FC<ActionButtonProps> = ({ action, label }) => {
   const gameContext = useGameContext();
-  return <Button onPress={() => action(gameContext)} title={label} />;
+  return (
+    <Button
+      onPress={() => action(gameContext)}
+      style={styles.button}
+      title={label}
+    />
+  );
 };
+
+const styles = StyleSheet.create({
+  button: {},
+});
 
 export default ActionButton;
