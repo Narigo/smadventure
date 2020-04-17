@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#ccc",
     alignItems: "stretch",
     flexDirection: "row",
-    justifyContent: "space-evenly",
   },
   description: {
     alignItems: "flex-end",
