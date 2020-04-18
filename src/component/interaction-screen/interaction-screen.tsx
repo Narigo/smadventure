@@ -51,8 +51,6 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
   },
   image: {
-    borderColor: "#f00",
-    borderWidth: 5,
     flexGrow: 1,
   },
 });
