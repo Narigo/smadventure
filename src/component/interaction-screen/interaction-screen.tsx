@@ -21,9 +21,8 @@ const InteractionScreen: React.FC<InteractionScreenProps> = ({
 }) => {
   return (
     <Screen>
-      <View style={styles.picture}>
+      <View style={styles.background}>
         <Image style={styles.image} resizeMode="contain" source={picture} />
-        <Text>{picture}</Text>
         <Text style={styles.description}>{description}</Text>
       </View>
       <View style={styles.children}>{children}</View>
@@ -34,6 +33,13 @@ const InteractionScreen: React.FC<InteractionScreenProps> = ({
 export default InteractionScreen;
 
 const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    flexGrow: 3,
+    backgroundColor: "#ff0",
+    alignItems: "stretch",
+    justifyContent: "space-between",
+  },
   children: {
     flex: 1,
     backgroundColor: "#ccc",
@@ -48,12 +54,5 @@ const styles = StyleSheet.create({
     borderColor: "#f00",
     borderWidth: 5,
     flexGrow: 1,
-  },
-  picture: {
-    flex: 1,
-    flexGrow: 3,
-    backgroundColor: "#ff0",
-    alignItems: "stretch",
-    justifyContent: "space-between",
   },
 });
