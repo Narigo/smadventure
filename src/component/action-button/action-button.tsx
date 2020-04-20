@@ -9,15 +9,22 @@ export type Action = Flavor<(GameContext) => void, "Action">;
 
 export interface ActionButtonProps {
   action: Action;
+  color1: string;
+  color2: string;
   label: string;
 }
 
-const ActionButton: React.FC<ActionButtonProps> = ({ action, label }) => {
+const ActionButton: React.FC<ActionButtonProps> = ({
+  action,
+  color1 = "rgba(0,0,0,0.8)",
+  color2 = "transparent",
+  label,
+}) => {
   const gameContext = useGameContext();
   return (
     <TouchableOpacity onPress={() => action(gameContext)} style={styles.button}>
       <LinearGradient
-        colors={["rgba(0,0,0,0.8)", "transparent"]}
+        colors={[color1, color2]}
         end={[1, 1]}
         start={[0, 0]}
         style={{
