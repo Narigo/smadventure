@@ -9,8 +9,8 @@ export type Action = Flavor<(GameContext) => void, "Action">;
 
 export interface ActionButtonProps {
   action: Action;
-  color1: string;
-  color2: string;
+  color1?: string;
+  color2?: string;
   label: string;
 }
 
